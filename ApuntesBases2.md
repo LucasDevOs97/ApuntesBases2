@@ -23,4 +23,11 @@ Hay 6 sublenguajes de SQL y un único lenguaje SQL.
         fecNac DATE);
 
 - **RESTRICCIONES:**
-  - 
+  - *Restricción Clave Foránea*:
+     ![Error](Imagenes/IMG_20200302_105054_596.jpg)
+    - [CONSTRAINT <nombre-restricción>]
+        (integridad referencial)FOREING KEY (<atributos>)
+        REFERENCES <nombre-tabla-referenciada>
+                    [<atributos-refereniados>]
+      [ON DELETE CASCADE|*NO ACTION*|SET NULL|SET DEFAULT]
+      [ON UPDATE CASCADE|*NO ACTION*|SET NULL|SET DEFAULT]
