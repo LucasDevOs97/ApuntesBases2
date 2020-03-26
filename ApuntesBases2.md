@@ -20,15 +20,40 @@ Hay 6 sublenguajes de SQL y un único lenguaje SQL.
         id INTEGER (integer es un dominio) PRIMARY KEY,
         nombre NCHAR(50),
         apellidos NCHAR(200),
-        fecNac DATE);
-
-- **RESTRICCIONES:**
+        fecNac DATE);    
+         
+## **RESTRICCIONES:**
   - *Restricción Clave Foránea*:
      ![Error](Imagenes/IMG_20200302_105054_596.jpg)
-    - [CONSTRAINT <nombre-restricción>]
-        FOREING KEY (<atributos>)
-        REFERENCES <nombre-tabla-referenciada>
-                    [<atributos-refereniados>]
-      [MATCH *FULL*|PARTIAL](integridad referencial)
-      [ON DELETE CASCADE|*NO ACTION*|SET NULL|SET DEFAULT]
-      [ON UPDATE CASCADE|*NO ACTION*|SET NULL|SET DEFAULT]
+    - [CONSTRAINT <nombre-restricción>]         
+        FOREING KEY (<atributos>)          
+        REFERENCES <nombre-tabla-referenciada>          
+                    [<atributos-refereniados>]          
+      [MATCH *FULL*|PARTIAL](integridad referencial)    
+              
+      [ON DELETE CASCADE|*NO ACTION*|SET NULL|SET DEFAULT]    
+            
+      [ON UPDATE CASCADE|*NO ACTION*|SET NULL|SET DEFAULT]     
+
+      - Ejemplo: 
+        - ![Error](Imagenes/foto2.png)    
+        - ALTERNATIVA (1 atributo): name NCHAR (80) PRIMARY KEY;      
+        
+  - **Borrar y Actualizar:**
+    - *Borrar:* [ON DELETE *NO ACTION*|CASCADE|SET NULL|SET DEFAULT]
+      - NO ACTION --> Si eliminamos algo de la tabla padre, no se modifica en la tabla hija.  
+      - CASCADE --> Si eliminamos algo en la tabla padre tambén lo hará en la tabla hija.  
+      - SET NULL --> Se modificaría en la tabla hija y mostraría "NULL" (tendría un gran impacto en el rendimiento de la Base de Datos).  
+      - SET DEFAULT --> Si se elimina la referencia de la tabla padre, se crea un campo vacío por defecto en la hija.  
+    - *Actualizar:* [ON UPDATE NO ACTION|SET NULL|SET DEFAULT|CASCADE]  
+      -  NO ACTION --> Si se modifica el padre, el hijo queda igual. Podría desencadenar problemas en la Base de Datos.  
+      -  SET NULL --> No desencadenaría problemas en la Base de datos; simplemente pondría como nulo ("NULL") el campo modificado en la tabla padre.  
+      -  SET DEFAULT --> Se utiliza mucho en el almacenamiento de datos.  
+      -  CASCADE --> Mantendría la Base de Datos actualizada. Si cambias algo en la tabla padre también se cambia en la hija.  
+      - > Lo más recomendable, si se cambia algo en la tabla padre, sería hacer ON UPDATE CASCADE.     
+          
+  - [MATCH *FULL*|PARTIAL] (tiene más sentido utilizarlo en claves foráneas compuestas).
+    - FULL --> O todos los campos so nulos o no sirve. Con que haya uno nulo, todos los son.   
+    - PARTIAL --> Permite que algún valor sea nulo siempre que las demás puedan referenciar a algún campo válido de la tabla padre.  
+  
+  - 
