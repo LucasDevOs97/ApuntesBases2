@@ -56,4 +56,16 @@ Hay 6 sublenguajes de SQL y un único lenguaje SQL.
     - FULL --> O todos los campos so nulos o no sirve. Con que haya uno nulo, todos los son.   
     - PARTIAL --> Permite que algún valor sea nulo siempre que las demás puedan referenciar a algún campo válido de la tabla padre.  
   
-  - 
+  - *Restricción Unicidad*:
+    - [CONSTRAINT <nombre-restricción>]     
+        UNIQUE (<atributos>)   (Primary key).  Misma declaración que el la clave primaria.
+
+  - *Restricción CHECK*:
+    - [CONSTRAINT <nombre.restricción>]   
+        CHECK predicado (atributos) (si se cumple el predicado, ocurre lo de abajo).   
+      [[NOT] DEFERRABLE]   
+      [*INITIALLY INMEDIATE DEFERRABLE]   
+      - **INITIALLY DEFERRABLE:* Se puede hacer la comprobación al final.  
+      - **NOT DEFERRABLE:** Hace la comprobación cuando intentamos hacer alguna operación.  
+      - > Si ponemos que es "NOT DEFERRABLE" ya no ponemos nada más (por defecto).   
+      - > Si ponemos "DEFERRABLE" en la última línea tenemos que poner "INITIALLY DEFERRABLE".
