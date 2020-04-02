@@ -69,3 +69,70 @@ Hay 6 sublenguajes de SQL y un único lenguaje SQL.
       - **NOT DEFERRABLE:** Hace la comprobación cuando intentamos hacer alguna operación.  
       - > Si ponemos que es "NOT DEFERRABLE" ya no ponemos nada más (por defecto).   
       - > Si ponemos "DEFERRABLE" en la última línea tenemos que poner "INITIALLY DEFERRABLE".
+  - **Eliminar**
+    - DROP SCHEMA   
+      [IF EXISTS]<nombre-BD>; <- eliminación de una Base de Datos     
+
+    - DROP TABLE   
+      [IF EXISTS] <ombre-tabla>   
+      [CASCADE | RESTRICT];   
+      - **CASCADE:** Se lo carga todo.
+      - **RESTRICT:** No deja eliminar la tabla si esta tiene tablas hijas que estén relacionadas con la padre.
+  - **Modificar**
+    - ALTER TABLE <nombre-tabla>   
+        ADD [COLUMN] <atributo> <dominios>...;      
+    - ALTER TABLE <nombre-tabla>    
+        DROP COLUMN <atributo> [CASCADE | RESTRICT];      
+    - ALTER TABLE <nombre-tabla>   
+        ADD <restricción>;      
+    - ALTER TABLE <nombre-tabla>     
+        DROP <restrición>;    
+         
+         
+        
+               
+                    
+# DML #     
+
+- **INSERT**   
+  - INSERT INTO <nombre-tabla>    
+    [(<columna1>, <columna2>,...<columna-n>)]      
+    (VALUES (<var1>,<var2>,...,<var-n>) | SELECT ...);          
+      - Tienen que tener el mismo número de columnas y el mismo dominio (mismo tipo de datos).
+    
+     
+- **UPDATE**
+  - UPDATE <nombre-tabla>   
+    SET <atributo1> = <var1>      
+        <atributo2> = <var2>   
+        ...      
+    [WHERE <predicado>];      
+
+  > Ejemplo1:   
+       
+    UPDATE world
+    SET name = 'España',     
+    Continent = 'Africa';     Así, todos los nombres de la tabla serían "España" y todos los continentes serían "África"      
+
+  > Ejemplo2:  
+     
+    UPDATE world    
+    SET name = 'España',      
+    Constinent = 'África',      
+    WHERE name = 'Spain';     Buscaría la tupla en la que el país es name = 'Spain' y cambiaría el nombre a "España" y el continente a "África".     
+     
+     
+     
+- **DELETE**
+  - DELETE FROM <nombre-tabla>    
+    [WHERE <predicado>];    
+     
+  > **OJO, SI NO PONEMOS EL WHERE SE BORRA TODO**   
+
+  > Ejemplo:   
+    DELETE FROM world   
+    WHERE population > 100000000;      
+
+ 
+
+
