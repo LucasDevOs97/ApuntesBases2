@@ -14,7 +14,7 @@ Cuando ya finaliza la intalación, ya tenemos nuestro servidor instalado y podem
  > system status mysql.service     
 Para saber que está en funcionamiento debería aparecer así:  
    
-![Error](Imagenes/Ststus.PNG)   
+![Error](Imagenes/Status.PNG)   
    
 Ahora que ya hemos comprobado que funciona correctamente, vamos a ejecutar un comando para tener un ejemplo, pero antes de poder ejecutar alguna isntrucción de MySQL, tenemos que ejecutar el comando **sudo mysql**:   
    
