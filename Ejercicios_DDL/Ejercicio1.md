@@ -1,6 +1,6 @@
 ![Error](Ejercicio1/creacionSchema.PNG)    
 ![Error](Ejercicio1/comprobarCreacion.PNG)     
-![Error](Ejercicio1/comporobarDB_PrimeraTabla.PNG)     
+![Error](Ejercicio1/comprobarDB_PrimeraTabla.PNG)     
 ![Error](Ejercicio1/tabla2.PNG)    
 ![Error](Ejercicio1/tabla3.PNG)    
     
